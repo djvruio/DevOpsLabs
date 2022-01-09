@@ -1,0 +1,4 @@
+# Vscode files
+.vscode
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
