@@ -117,6 +117,14 @@ resource "aws_security_group" "K8s_cluster_sg" {
   }
 
   ingress {
+    description = "Access to 32000 default NodePort service for Lab 04"
+    from_port   = 32000
+    to_port     = 32000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  } 
+
+  ingress {
     description = "Access to ALL"
     from_port   = 0
     to_port     = 0
