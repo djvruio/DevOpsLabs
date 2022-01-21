@@ -69,6 +69,26 @@ resource "aws_instance" "node_01" {
   }
 }
 
+resource "aws_instance" "node_02" {
+  ami           = "ami-001089eb624938d9f"
+  instance_type = "t2.micro"
+  key_name      = "KeyPairForEC2TestingInstances"
+  security_groups = ["${aws_security_group.K8s_cluster_sg.name}"]
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = file("C:\\Users\\rafae\\.aws\\KeyPairForEC2TestingInstances.pem")
+    host     =  self.public_ip
+  }
+  
+  tags = {
+    Name  = "node-02-server-instance"
+    Owner = "djvruio@gmail.com"
+    Environment = "DEVEL"
+  }
+}
+
 resource "aws_security_group" "K8s_cluster_sg" {
   name = "K8s-cluster-sg"
 
@@ -110,4 +130,19 @@ resource "aws_security_group" "K8s_cluster_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource "local_file" "master_k8s_info" {
+    content  = aws_instance.master_k8s_server.public_ip
+    filename = "master_k8s_info.txt"
+}
+
+resource "local_file" "node_01_info" {
+    content  = aws_instance.node_01.public_ip
+    filename = "node_01_info.txt"
+}
+
+resource "local_file" "node_02_info" {
+    content  = aws_instance.node_02.public_ip
+    filename = "node_02_info.txt"
 }

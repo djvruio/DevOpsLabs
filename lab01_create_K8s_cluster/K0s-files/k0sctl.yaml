@@ -1,17 +1,23 @@
 apiVersion: k0sctl.k0sproject.io/v1beta1
 kind: Cluster
 metadata:
-  name: k8s-dark-cluster
+  name: K8s-Dark-Cluster
 spec:
   hosts:
   - ssh:
-      address: 18.224.16.154
+      address: 3.134.92.12
       user: ec2-user
       port: 22
       keyPath: 'C:\Users\rafae\.aws\KeyPairForEC2TestingInstances.pem'
-    role: controller+worker
+    role: controller
   - ssh:
-      address: 13.59.27.16
+      address: 18.223.162.156
+      user: ec2-user
+      port: 22
+      keyPath: 'C:\Users\rafae\.aws\KeyPairForEC2TestingInstances.pem'
+    role: worker
+  - ssh:
+      address: 18.188.175.118
       user: ec2-user
       port: 22
       keyPath: 'C:\Users\rafae\.aws\KeyPairForEC2TestingInstances.pem'

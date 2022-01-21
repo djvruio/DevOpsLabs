@@ -17,3 +17,13 @@ output "node_01_instance_public_ip" {
   description = "Public IP address of the EC2 node_01 instance (worker)"
   value       = aws_instance.node_01.public_ip
 }
+
+output "node_02_instance_id" {
+  description = "ID of the EC2 node_02 instance (worker)"
+  value       = aws_instance.node_02.id
+}
+
+output "node_02_instance_public_ip" {
+  description = "Public IP address of the EC2 node_02 instance (worker)"
+  value       = aws_instance.node_02.public_ip
+}
