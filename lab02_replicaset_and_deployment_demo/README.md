@@ -42,3 +42,6 @@ This lab uses:
     - ```kubectl get rs```
     - ```kubectl delete rs <rs-name>```
     - ```kubectl get rs```
+- Delete Deployment
+    - ```kubectl get deploy -A```
+    - ```kubectl delete deploy <deploy-name> -n <namespace>```
