@@ -33,6 +33,6 @@ Alternative command for update the Node Group
 - ```kubectl get pods``` 
 - ```kubectl get nodes```
 - Delete the cluster
-- ```eksctl get cluster --region=us-east-1```
-- ```eksctl delete cluster --name=max-pod-test --region=us-east-1```
+- ```eksctl get cluster```
+- ```eksctl delete cluster --name=demoeks --region=us-east-2```
 - ```eksctl get cluster --region=us-east-1```
